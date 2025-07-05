@@ -1,7 +1,7 @@
-FROM node:alpine
-RUN mkdir -p /usr/src/calc
-WORKDIR /usr/src/calc
-COPY . .
+FROM node:18
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-# EXPOSE 3000
-CMD [ "node", "calculator.js" ]
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
